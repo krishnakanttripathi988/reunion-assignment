@@ -47,6 +47,6 @@ class Authentication:
                 authenticated_user = result
                 check = False
         if check:
-            return {'message': 'Invalid email or password'}, 401
+            return Response(data={'message': 'Invalid email or password'}, status=401)
 
         return authenticated_user
