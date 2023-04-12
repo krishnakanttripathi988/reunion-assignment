@@ -14,7 +14,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Set environment variables for Django
-ENV DJANGO_SETTINGS_MODULE=myapp.settings
 ENV PYTHONPATH=/app
 
 # Expose the necessary ports
