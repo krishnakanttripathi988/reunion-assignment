@@ -11,6 +11,17 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+MONGODB_HOST = os.environ.get('MONGODB_HOST')
+MONGODB_AUTH_MECH = os.environ.get('MONGODB_AUTH_MECH')
+MONGODB_DB = os.environ.get('MONGODB_DB')
+MONGODB_USERNAME = os.environ.get('MONGODB_USERNAME')
+MONGODB_PASSWORD = os.environ.get('MONGODB_PASSWORD')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,11 +90,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'CLIENT':{
-                    "name": 'krishna_kant_social_media',
-                    "host": 'mongodb+srv://krishnakant:bOSDECiVn2ooPgo7@krishnakant.dlq02ox.mongodb.net/?retryWrites=true&w=majority',
-                    "username": "krishnakant",
-                    "password": "bOSDECiVn2ooPgo7",
-                    "authMechanism": "SCRAM-SHA-1",
+                    "name": MONGODB_DB,
+                    "host": MONGODB_HOST,
+                    "username": MONGODB_USERNAME,
+                    "password": MONGODB_PASSWORD,
+                    "authMechanism": MONGODB_AUTH_MECH,
                 },
     }
 }
